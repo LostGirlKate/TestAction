@@ -44,6 +44,8 @@ jobs:
         run: |
           pwd
           ls -la
+          ls -la ./config
+          ls -la ./config/detekt/
           ./gradlew detekt
 
       - name: Build
