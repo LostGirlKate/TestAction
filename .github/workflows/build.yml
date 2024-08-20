@@ -50,9 +50,10 @@ jobs:
         with:
           distribution: oracle
           java-version: '17'
-
+          
       - name: Build and Run Detekt
         run: |
+          chmod +x ./gradlew
           ./gradlew detekt
 
   build:
