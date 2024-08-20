@@ -1,4 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 
 plugins {
     alias(libs.plugins.androidApplication)
@@ -54,7 +55,7 @@ android {
 
 detekt {
     toolVersion = "1.23.3"
-    config.setFrom(file("config/detekt/detekt.yml"))
+    config.setFrom("$projectDir/config/detekt.yml")
     buildUponDefaultConfig = true
 }
 
@@ -66,6 +67,13 @@ tasks.withType<Detekt>().configureEach {
         sarif.required.set(true)
         md.required.set(true)
     }
+}
+
+tasks.withType<Detekt>().configureEach {
+    jvmTarget = "1.8"
+}
+tasks.withType<DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "1.8"
 }
 
 dependencies {
