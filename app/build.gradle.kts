@@ -69,6 +69,8 @@ tasks.withType<Detekt>().configureEach {
     jvmTarget = "1.8"
 }
 
+val detektPlugins: Configuration = configurations.getByName("detektPlugins")
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -79,6 +81,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
+    detektPlugins(libs.bundles.detektplugins)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
