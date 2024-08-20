@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -25,7 +26,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -49,8 +50,26 @@ android {
     }
 }
 
-dependencies {
+//detekt {
+//    toolVersion = "1.23.3"
+//    config.setFrom("../config/detekt/detekt.yml")
+//    buildUponDefaultConfig = true
+//}
 
+//tasks.withType<Detekt>().configureEach {
+//    reports {
+//        xml.required.set(true)
+//        html.required.set(true)
+//        txt.required.set(true)
+//        sarif.required.set(true)
+//        md.required.set(true)
+//    }
+//    jvmTarget = "1.8"
+//}
+//
+//val detektPlugins: Configuration = configurations.getByName("detektPlugins")
+
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -60,6 +79,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
+    detektPlugins(libs.bundles.detektplugins)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
