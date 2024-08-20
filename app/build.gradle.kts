@@ -55,7 +55,7 @@ android {
 
 detekt {
     toolVersion = "1.23.3"
-    config.setFrom("$projectDir/config/detekt.yml")
+    config.setFrom("$rootDir/config/detekt/detekt.yml")
     buildUponDefaultConfig = true
 }
 
