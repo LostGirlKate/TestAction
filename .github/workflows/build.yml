@@ -41,7 +41,10 @@ jobs:
 
 
       - name: Detekt
-        run: ./gradlew detekt
+        run: |
+          pwd
+          ls -la
+          ./gradlew detekt
 
       - name: Build
         run: |
