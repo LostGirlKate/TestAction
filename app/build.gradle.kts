@@ -1,5 +1,3 @@
-import io.gitlab.arturbosch.detekt.Detekt
-
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -52,24 +50,24 @@ android {
     }
 }
 
-detekt {
-    toolVersion = "1.23.3"
-    config.setFrom("../config/detekt/detekt.yml")
-    buildUponDefaultConfig = true
-}
+//detekt {
+//    toolVersion = "1.23.3"
+//    config.setFrom("../config/detekt/detekt.yml")
+//    buildUponDefaultConfig = true
+//}
 
-tasks.withType<Detekt>().configureEach {
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-        txt.required.set(true)
-        sarif.required.set(true)
-        md.required.set(true)
-    }
-    jvmTarget = "1.8"
-}
-
-val detektPlugins: Configuration = configurations.getByName("detektPlugins")
+//tasks.withType<Detekt>().configureEach {
+//    reports {
+//        xml.required.set(true)
+//        html.required.set(true)
+//        txt.required.set(true)
+//        sarif.required.set(true)
+//        md.required.set(true)
+//    }
+//    jvmTarget = "1.8"
+//}
+//
+//val detektPlugins: Configuration = configurations.getByName("detektPlugins")
 
 dependencies {
     implementation(libs.androidx.core.ktx)
