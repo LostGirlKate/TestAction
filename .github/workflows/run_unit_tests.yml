@@ -1,7 +1,8 @@
 on:
   pull_request:
-    branches:
-      - 'main'
+    branches: "*"
+  merge_group:
+    branches: "*"
 
 jobs:
   Unit-test:
